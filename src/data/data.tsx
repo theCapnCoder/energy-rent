@@ -1,4 +1,5 @@
 import { Home, People, VerifiedUser } from "@mui/icons-material";
+import { faker } from "@faker-js/faker";
 
 type ListItem = {
   id: number;
@@ -45,3 +46,11 @@ export const menu: Menu[] = [
     ],
   },
 ];
+
+export const topUsers = Array.from({ length: 8 }, (_, index) => ({
+  id: index + 1,
+  img: faker.image.avatar(),
+  username: faker.internet.userName(),
+  email: faker.internet.email(),
+  amount: faker.finance.amount(),
+}));
