@@ -21,13 +21,13 @@ export const Home = () => {
       <Paper>
         <ChartBox />
       </Paper>
-      <Paper sx={{ gridColumn: "span 1", gridRow: "span 3" }}>
+      <Paper sx={{ gridColumn: "span 1", gridRow: "span 3" }}>6</Paper>
+      <Paper>
         <ChartBox />
       </Paper>
       <Paper>
         <ChartBox />
       </Paper>
-      <Paper>6</Paper>
       <Paper sx={{ gridColumn: "span 2", gridRow: "span 2" }}>7</Paper>
       <Paper>8</Paper>
       <Paper>9</Paper>
