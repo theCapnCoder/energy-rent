@@ -82,20 +82,20 @@ export const chartBoxUser: ChartBoxProps = {
 };
 
 export const chartBoxProduct: ChartBoxProps = {
-  color: "#000",
+  color: "skyblue",
   icon: <ProductionQuantityLimits />,
   title: "Total Products",
   number: "238",
   dataKey: "products",
   percentage: 21,
   chartData: [
-    { name: "Sun", users: 400 },
-    { name: "Mon", users: 600 },
-    { name: "Tue", users: 500 },
-    { name: "Wed", users: 700 },
-    { name: "Thu", users: 400 },
-    { name: "Fri", users: 500 },
-    { name: "Sat", users: 450 },
+    { name: "Sun", products: 400 },
+    { name: "Mon", products: 600 },
+    { name: "Tue", products: 500 },
+    { name: "Wed", products: 700 },
+    { name: "Thu", products: 400 },
+    { name: "Fri", products: 500 },
+    { name: "Sat", products: 450 },
   ],
 };
 
@@ -107,13 +107,13 @@ export const chartBoxRevenue: ChartBoxProps = {
   dataKey: "revenue",
   percentage: -12,
   chartData: [
-    { name: "Sun", users: 400 },
-    { name: "Mon", users: 600 },
-    { name: "Tue", users: 500 },
-    { name: "Wed", users: 700 },
-    { name: "Thu", users: 400 },
-    { name: "Fri", users: 500 },
-    { name: "Sat", users: 450 },
+    { name: "Sun", revenue: 400 },
+    { name: "Mon", revenue: 600 },
+    { name: "Tue", revenue: 500 },
+    { name: "Wed", revenue: 700 },
+    { name: "Thu", revenue: 400 },
+    { name: "Fri", revenue: 500 },
+    { name: "Sat", revenue: 450 },
   ],
 };
 
@@ -125,12 +125,12 @@ export const chartBoxConversion: ChartBoxProps = {
   dataKey: "ratio",
   percentage: 12,
   chartData: [
-    { name: "Sun", users: 400 },
-    { name: "Mon", users: 600 },
-    { name: "Tue", users: 500 },
-    { name: "Wed", users: 700 },
-    { name: "Thu", users: 400 },
-    { name: "Fri", users: 500 },
-    { name: "Sat", users: 450 },
+    { name: "Sun", ratio: 400 },
+    { name: "Mon", ratio: 600 },
+    { name: "Tue", ratio: 500 },
+    { name: "Wed", ratio: 700 },
+    { name: "Thu", ratio: 400 },
+    { name: "Fri", ratio: 500 },
+    { name: "Sat", ratio: 450 },
   ],
 };
