@@ -1,84 +1,55 @@
-import { EmojiPeople, PeopleAlt } from "@mui/icons-material";
+import { PeopleAlt } from "@mui/icons-material";
 import { Typography } from "@mui/material";
 import { Box, Stack } from "@mui/system";
 import { Link } from "react-router-dom";
-import { LineChart, Line, ResponsiveContainer } from "recharts";
+import { LineChart, Line, ResponsiveContainer, Tooltip } from "recharts";
 
-const data = [
-  {
-    name: "Page A",
-    uv: 4000,
-    pv: 2400,
-    amt: 2400,
-  },
-  {
-    name: "Page B",
-    uv: 3000,
-    pv: 1398,
-    amt: 2210,
-  },
-  {
-    name: "Page C",
-    uv: 2000,
-    pv: 9800,
-    amt: 2290,
-  },
-  {
-    name: "Page D",
-    uv: 2780,
-    pv: 3908,
-    amt: 2000,
-  },
-  {
-    name: "Page E",
-    uv: 1890,
-    pv: 4800,
-    amt: 2181,
-  },
-  {
-    name: "Page F",
-    uv: 2390,
-    pv: 3800,
-    amt: 2500,
-  },
-  {
-    name: "Page G",
-    uv: 3490,
-    pv: 4300,
-    amt: 2100,
-  },
-];
+export type ChartBoxProps = {
+  color: string;
+  icon: React.ReactNode;
+  title: string;
+  dataKey: string;
+  number: number | string;
+  percentage: number;
+  chartData: object[];
+};
 
-export const ChartBox = () => {
+export const ChartBox = (props: ChartBoxProps) => {
+  console.log(props.color);
   return (
-    // <Stack direction={"row"} p={2} sx={{ height: "calc(100% - 24px)" }}>
     <Stack
       direction={"row"}
       p={2}
       width={"calc(100% - 24px)"}
       height={"calc(100% - 24px)"}
-      // height={"100%"}
       justifyContent={"space-between"}
     >
       <Stack justifyContent={"space-between"} sx={{ flex: 2 }}>
         <Stack direction={"row"} alignItems={"center"} gap={1}>
-          <PeopleAlt />
-          <Typography variant="subtitle1">Total Users</Typography>
+          {props.icon}
+          <Typography variant="subtitle1">{props.title}</Typography>
         </Stack>
-        <Typography variant="h4">1,234</Typography>
-        <Link to="/">
-          <Typography variant="subtitle2">View All</Typography>
+        <Typography variant="h4">{props.number}</Typography>
+        <Link to="/" style={{ textDecoration: "none" }}>
+          <Typography variant="subtitle2" sx={{ color: props.color }}>
+            View All
+          </Typography>
         </Link>
       </Stack>
 
       <Stack alignItems={"flex-end"} justifyContent={"space-between"}>
         <Box width={100} height={50}>
           <ResponsiveContainer width="100%" height="100%">
-            <LineChart width={300} height={100} data={data}>
+            <LineChart data={props.chartData}>
+              <Tooltip
+                contentStyle={{ background: "transparent", border: "none" }}
+                labelStyle={{ display: "none" }}
+                position={{ x: 5, y: 30 }}
+              />
               <Line
                 type="monotone"
-                dataKey="pv"
-                stroke="#8884d8"
+                dataKey={props.dataKey}
+                stroke={props.color}
                 strokeWidth={2}
                 dot={false}
               />
@@ -87,8 +58,14 @@ export const ChartBox = () => {
         </Box>
 
         <Box>
-          <Typography variant="subtitle1" sx={{ textAlign: "right" }}>
-            45%
+          <Typography
+            variant="subtitle1"
+            sx={{
+              textAlign: "right",
+              color: props.percentage < 0 ? "tomato" : "limegreen",
+            }}
+          >
+            {props.percentage}%
           </Typography>
           <Typography variant="caption">This month</Typography>
         </Box>
