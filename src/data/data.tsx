@@ -1,5 +1,6 @@
-import { Home, People, VerifiedUser } from "@mui/icons-material";
+import { Home, People, PeopleAlt, VerifiedUser } from "@mui/icons-material";
 import { faker } from "@faker-js/faker";
+import { ChartBoxProps } from "../components/chartBox/ChartBox";
 
 type ListItem = {
   id: number;
@@ -54,3 +55,22 @@ export const topUsers = Array.from({ length: 8 }, (_, index) => ({
   email: faker.internet.email(),
   amount: faker.finance.amount(),
 }));
+
+export const chartBoxUser: ChartBoxProps = {
+  color: "#8884d8",
+  icon: <PeopleAlt/>,
+  title: "Total Users",
+  number: "11.238",
+  dataKey: "users",
+  percentage: 45,
+  chartData: [
+    {name: "Sun", users: 400},
+    {name: "Mon", users: 600},
+    {name: "Tue", users: 500},
+    {name: "Wed", users: 700},
+    {name: "Thu", users: 400},
+    {name: "Fri", users: 500},
+    {name: "Sat", users: 450},
+    
+  ]
+}
