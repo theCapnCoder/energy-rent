@@ -1,4 +1,11 @@
-import { Home, People, PeopleAlt, VerifiedUser } from "@mui/icons-material";
+import {
+  Home,
+  People,
+  PeopleAlt,
+  ProductionQuantityLimits,
+  ReviewsRounded,
+  VerifiedUser,
+} from "@mui/icons-material";
 import { faker } from "@faker-js/faker";
 import { ChartBoxProps } from "../components/chartBox/ChartBox";
 
@@ -58,19 +65,72 @@ export const topUsers = Array.from({ length: 8 }, (_, index) => ({
 
 export const chartBoxUser: ChartBoxProps = {
   color: "#8884d8",
-  icon: <PeopleAlt/>,
+  icon: <PeopleAlt />,
   title: "Total Users",
   number: "11.238",
   dataKey: "users",
   percentage: 45,
   chartData: [
-    {name: "Sun", users: 400},
-    {name: "Mon", users: 600},
-    {name: "Tue", users: 500},
-    {name: "Wed", users: 700},
-    {name: "Thu", users: 400},
-    {name: "Fri", users: 500},
-    {name: "Sat", users: 450},
-    
-  ]
-}
+    { name: "Sun", users: 400 },
+    { name: "Mon", users: 600 },
+    { name: "Tue", users: 500 },
+    { name: "Wed", users: 700 },
+    { name: "Thu", users: 400 },
+    { name: "Fri", users: 500 },
+    { name: "Sat", users: 450 },
+  ],
+};
+
+export const chartBoxProduct: ChartBoxProps = {
+  color: "#000",
+  icon: <ProductionQuantityLimits />,
+  title: "Total Products",
+  number: "238",
+  dataKey: "products",
+  percentage: 21,
+  chartData: [
+    { name: "Sun", users: 400 },
+    { name: "Mon", users: 600 },
+    { name: "Tue", users: 500 },
+    { name: "Wed", users: 700 },
+    { name: "Thu", users: 400 },
+    { name: "Fri", users: 500 },
+    { name: "Sat", users: 450 },
+  ],
+};
+
+export const chartBoxRevenue: ChartBoxProps = {
+  color: "teal",
+  icon: <ReviewsRounded />,
+  title: "Total Revenue",
+  number: "$56.432",
+  dataKey: "revenue",
+  percentage: -12,
+  chartData: [
+    { name: "Sun", users: 400 },
+    { name: "Mon", users: 600 },
+    { name: "Tue", users: 500 },
+    { name: "Wed", users: 700 },
+    { name: "Thu", users: 400 },
+    { name: "Fri", users: 500 },
+    { name: "Sat", users: 450 },
+  ],
+};
+
+export const chartBoxConversion: ChartBoxProps = {
+  color: "gold",
+  icon: <PeopleAlt />,
+  title: "Total Ratio",
+  number: "2.6",
+  dataKey: "ratio",
+  percentage: 12,
+  chartData: [
+    { name: "Sun", users: 400 },
+    { name: "Mon", users: 600 },
+    { name: "Tue", users: 500 },
+    { name: "Wed", users: 700 },
+    { name: "Thu", users: 400 },
+    { name: "Fri", users: 500 },
+    { name: "Sat", users: 450 },
+  ],
+};
