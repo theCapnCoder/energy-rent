@@ -1,6 +1,7 @@
 import { Box, BoxProps, Paper } from "@mui/material";
 import { TopBox } from "../../components/topBox";
 import { ChartBox } from "../../components/chartBox";
+import { chartBoxUser } from "../../data/data";
 
 export const Home = () => {
   return (
@@ -16,17 +17,17 @@ export const Home = () => {
         <TopBox />
       </Paper>
       <Paper>
-        <ChartBox />
+        <ChartBox {...chartBoxUser}/>
       </Paper>
       <Paper>
-        <ChartBox />
+        {/* <ChartBox /> */}
       </Paper>
       <Paper sx={{ gridColumn: "span 1", gridRow: "span 3" }}>6</Paper>
       <Paper>
-        <ChartBox />
+        {/* <ChartBox /> */}
       </Paper>
       <Paper>
-        <ChartBox />
+        {/* <ChartBox /> */}
       </Paper>
       <Paper sx={{ gridColumn: "span 2", gridRow: "span 2" }}>7</Paper>
       <Paper>8</Paper>
