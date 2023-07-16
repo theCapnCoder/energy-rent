@@ -1,0 +1,1 @@
+export { BarChartBox } from './BarChartBox';
