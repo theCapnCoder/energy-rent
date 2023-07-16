@@ -5,10 +5,10 @@ import { ChartBoxProps } from "../chartBox/ChartBox";
 export const BarChartBox = (props: ChartBoxProps) => {
   return (
     <Box>
-      <Typography></Typography>
+      <Typography>{props.title}</Typography>
       <ResponsiveContainer width="100%" height="100%">
-        <BarChart width={150} height={40} data={data}>
-          <Bar dataKey="uv" fill="#8884d8" />
+        <BarChart width={150} height={40} data={props.chartData}>
+          <Bar dataKey={props.dataKey} fill={props.color} />
         </BarChart>
       </ResponsiveContainer>
     </Box>
