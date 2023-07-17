@@ -1,13 +1,8 @@
-import { Box, BoxProps, Stack, Typography } from "@mui/material";
-import { Theme } from "@mui/material/styles";
+import { Box, Stack } from "@mui/material";
 import { NavBar } from "./components/navbar/NavBar";
 import { Footer } from "./components/footer";
 import { Menu } from "./components/menu";
 import { Outlet } from "react-router-dom";
-
-const container: BoxProps["sx"] = {};
-const menuContainer: BoxProps["sx"] = {};
-const contentConteiner: BoxProps["sx"] = {};
 
 function App() {
   return (
