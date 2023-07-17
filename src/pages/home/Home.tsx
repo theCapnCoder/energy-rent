@@ -1,4 +1,4 @@
-import { Box, BoxProps, Paper } from "@mui/material";
+import { Box, Paper } from "@mui/material";
 import { TopBox } from "../../components/topBox";
 import { ChartBox } from "../../components/chartBox";
 import {
