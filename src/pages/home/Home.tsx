@@ -2,11 +2,14 @@ import { Box, Paper } from "@mui/material";
 import { TopBox } from "../../components/topBox";
 import { ChartBox } from "../../components/chartBox";
 import {
+  barChartBoxRevenue,
+  barChartBoxVisit,
   chartBoxConversion,
   chartBoxProduct,
   chartBoxRevenue,
   chartBoxUser,
 } from "../../data/data";
+import { BarChartBox } from "../../components/barChartBox";
 
 export const Home = () => {
   return (
@@ -35,8 +38,12 @@ export const Home = () => {
         <ChartBox {...chartBoxConversion} />
       </Paper>
       <Paper sx={{ gridColumn: "span 2", gridRow: "span 2" }}>7</Paper>
-      <Paper>8</Paper>
-      <Paper>9</Paper>
+      <Paper>
+        <BarChartBox {...barChartBoxVisit} />
+      </Paper>
+      <Paper>
+        <BarChartBox {...barChartBoxRevenue} />
+      </Paper>
     </Box>
   );
 };
