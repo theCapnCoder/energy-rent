@@ -8,6 +8,8 @@ import {
 } from "@mui/icons-material";
 import { faker } from "@faker-js/faker";
 import { ChartBoxProps } from "../components/chartBox/ChartBox";
+import { BarChartBox } from "../components/barChartBox";
+import { BarChartBoxProps } from "../components/barChartBox/BarChartBox";
 
 type ListItem = {
   id: number;
@@ -132,5 +134,77 @@ export const chartBoxConversion: ChartBoxProps = {
     { name: "Thu", ratio: 400 },
     { name: "Fri", ratio: 500 },
     { name: "Sat", ratio: 450 },
+  ],
+};
+
+export const barChartBoxRevenue: BarChartBoxProps = {
+  title: "Profit Earned",
+  color: "#8884d8",
+  dataKey: "profit",
+  chartData: [
+    {
+      name: "Sun",
+      profit: 4000,
+    },
+    {
+      name: "Mon",
+      profit: 3000,
+    },
+    {
+      name: "Tue",
+      profit: 2000,
+    },
+    {
+      name: "Wed",
+      profit: 2780,
+    },
+    {
+      name: "Thu",
+      profit: 1890,
+    },
+    {
+      name: "Fri",
+      profit: 2390,
+    },
+    {
+      name: "Sat",
+      profit: 3490,
+    },
+  ]
+}
+
+export const barChartBoxVisit: BarChartBoxProps = {
+  title: "Total Visit",
+  color: "#FF8042",
+  dataKey: "visit",
+  chartData: [
+    {
+      name: "Sun",
+      visit: 4000,
+    },
+    {
+      name: "Mon",
+      visit: 3000,
+    },
+    {
+      name: "Tue",
+      visit: 2000,
+    },
+    {
+      name: "Wed",
+      visit: 2780,
+    },
+    {
+      name: "Thu",
+      visit: 1890,
+    },
+    {
+      name: "Fri",
+      visit: 2390,
+    },
+    {
+      name: "Sat",
+      visit: 3490,
+    },
   ],
 };
