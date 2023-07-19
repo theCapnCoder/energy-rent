@@ -14,7 +14,6 @@ export type ChartBoxProps = {
 };
 
 export const ChartBox = (props: ChartBoxProps) => {
-  console.log(props.color);
   return (
     <Stack
       direction={"row"}
