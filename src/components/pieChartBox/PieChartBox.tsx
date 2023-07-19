@@ -1,4 +1,4 @@
-import { Box, Typography } from "@mui/material";
+import { Box, Stack, Typography } from "@mui/material";
 import { Cell, Pie, PieChart, ResponsiveContainer, Tooltip } from "recharts";
 
 const data = [
@@ -10,11 +10,13 @@ const data = [
 
 export const PieChartBox = () => {
   return (
-    <Box p={2}>
-      <Typography>Leads by Source</Typography>
+    <Stack p={2} height={"95%"} justifyContent={"space-between"}>
+      <Typography variant="h5">Leads by Source</Typography>
       <ResponsiveContainer width={"99%"} height={300}>
         <PieChart>
-          <Tooltip contentStyle={{ background: "white", borderRadius: "5px" }} />
+          <Tooltip
+            contentStyle={{ background: "white", borderRadius: "5px" }}
+          />
           <Pie
             data={data}
             innerRadius={"70%"}
@@ -28,6 +30,24 @@ export const PieChartBox = () => {
           </Pie>
         </PieChart>
       </ResponsiveContainer>
-    </Box>
+      <Stack direction="row" justifyContent={"space-between"}>
+        {data.map(({ name, value, color }) => (
+          <Stack key={name} gap={1} alignItems={"center"}>
+            <Stack direction={"row"} gap={1} alignItems={"center"}>
+              <Box
+                sx={{
+                  width: 10,
+                  height: 10,
+                  bgcolor: color,
+                  borderRadius: "50%",
+                }}
+              />
+              <Typography variant="caption">{name}</Typography>
+            </Stack>
+            <Typography>{value}</Typography>
+          </Stack>
+        ))}
+      </Stack>
+    </Stack>
   );
 };
