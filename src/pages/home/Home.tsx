@@ -10,6 +10,7 @@ import {
   chartBoxUser,
 } from "../../data/data";
 import { BarChartBox } from "../../components/barChartBox";
+import { PieChartBox } from "../../components/pieChartBox";
 
 export const Home = () => {
   return (
@@ -30,7 +31,9 @@ export const Home = () => {
       <Paper>
         <ChartBox {...chartBoxProduct} />
       </Paper>
-      <Paper sx={{ gridColumn: "span 1", gridRow: "span 3" }}>6</Paper>
+      <Paper sx={{ gridColumn: "span 1", gridRow: "span 3" }}>
+        <PieChartBox />
+      </Paper>
       <Paper>
         <ChartBox {...chartBoxRevenue} />
       </Paper>
