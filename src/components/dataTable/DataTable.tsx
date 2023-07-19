@@ -1,3 +1,4 @@
+import { Avatar } from "@mui/material";
 import {
   DataGrid,
   GridColDef,
@@ -8,6 +9,20 @@ import {
 export const DataTable = () => {
   const columns: GridColDef[] = [
     { field: "id", headerName: "ID", width: 90 },
+    {
+      field: "avatar",
+      headerName: "Avatar",
+      width: 100,
+      renderCell: (params) => {
+        return <Avatar alt="Remy Sharp" src={params.row.avatar} />;
+      },
+    },
+    {
+      field: "status",
+      headerName: "Status",
+      width: 100,
+      type: "boolean",
+    },
     {
       field: "firstName",
       headerName: "First name",
@@ -39,7 +54,7 @@ export const DataTable = () => {
   ];
 
   const rows = [
-    { id: 1, lastName: "Snow", firstName: "Jon", age: 35 },
+    { id: 1, lastName: "Snow", firstName: "Jon", age: 35, status: true },
     { id: 2, lastName: "Lannister", firstName: "Cersei", age: 42 },
     { id: 3, lastName: "Lannister", firstName: "Jaime", age: 45 },
     { id: 4, lastName: "Stark", firstName: "Arya", age: 16 },
@@ -52,6 +67,11 @@ export const DataTable = () => {
 
   return (
     <DataGrid
+      sx={{
+        "& .MuiDataGrid-toolbarContainer": {
+          flexDirection: "row-reverse",
+        },
+      }}
       rows={rows}
       columns={columns}
       initialState={{
