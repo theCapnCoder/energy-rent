@@ -8,7 +8,6 @@ import {
 } from "@mui/icons-material";
 import { faker } from "@faker-js/faker";
 import { ChartBoxProps } from "../components/chartBox/ChartBox";
-import { BarChartBox } from "../components/barChartBox";
 import { BarChartBoxProps } from "../components/barChartBox/BarChartBox";
 
 type ListItem = {
