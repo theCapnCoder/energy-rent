@@ -11,6 +11,7 @@ import {
 } from "../../data/data";
 import { BarChartBox } from "../../components/barChartBox";
 import { PieChartBox } from "../../components/pieChartBox";
+import { BigChartBox } from "../../components/BigChartBox";
 
 export const Home = () => {
   return (
@@ -40,7 +41,9 @@ export const Home = () => {
       <Paper>
         <ChartBox {...chartBoxConversion} />
       </Paper>
-      <Paper sx={{ gridColumn: "span 2", gridRow: "span 2" }}>7</Paper>
+      <Paper sx={{ gridColumn: "span 2", gridRow: "span 2" }}>
+        <BigChartBox />
+      </Paper>
       <Paper>
         <BarChartBox {...barChartBoxVisit} />
       </Paper>
