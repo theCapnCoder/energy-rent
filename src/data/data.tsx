@@ -1,4 +1,5 @@
 import {
+  AccessibleForward,
   Home,
   People,
   PeopleAlt,
@@ -9,6 +10,7 @@ import {
 import { faker } from "@faker-js/faker";
 import { ChartBoxProps } from "../components/chartBox/ChartBox";
 import { BarChartBoxProps } from "../components/barChartBox/BarChartBox";
+import { Products } from "../pages/products";
 
 type ListItem = {
   id: number;
@@ -51,6 +53,12 @@ export const menu: Menu[] = [
         title: "Users",
         url: "/users",
         icon: <VerifiedUser />,
+      },
+      {
+        id: 2,
+        title: "Products",
+        url: "/products",
+        icon: <AccessibleForward />,
       },
     ],
   },
@@ -169,8 +177,8 @@ export const barChartBoxRevenue: BarChartBoxProps = {
       name: "Sat",
       profit: 3490,
     },
-  ]
-}
+  ],
+};
 
 export const barChartBoxVisit: BarChartBoxProps = {
   title: "Total Visit",
@@ -217,7 +225,9 @@ function generateRandomDate() {
   const month = getRandomNumber(1, 12);
   const year = getRandomNumber(2000, 2030);
 
-  return `${day.toString().padStart(2, '0')}.${month.toString().padStart(2, '0')}.${year}`;
+  return `${day.toString().padStart(2, "0")}.${month
+    .toString()
+    .padStart(2, "0")}.${year}`;
 }
 
 export const userRows = Array.from({ length: 20 }, (_, index) => ({
@@ -226,7 +236,19 @@ export const userRows = Array.from({ length: 20 }, (_, index) => ({
   lastName: faker.person.lastName(),
   firstName: faker.person.firstName(),
   email: faker.internet.email(),
-  phone: faker.phone.number('+48 91 ### ## ##'),
+  phone: faker.phone.number("+48 91 ### ## ##"),
   createdAt: generateRandomDate(),
   verified: faker.datatype.boolean(),
-}))
+}));
+
+export const productRows = Array.from({ length: 20 }, (_, index) => ({
+  id: index + 1,
+  img: faker.image.urlLoremFlickr({ category: "technics" }),
+  title: faker.commerce.product(),
+  color: faker.color.human(),
+  producer: faker.commerce.productName(),
+  price: faker.commerce.price(),
+  createdAt: generateRandomDate(),
+  inStoke: faker.datatype.boolean(),
+}));
+
