@@ -223,8 +223,8 @@ function generateRandomDate() {
 export const userRows = Array.from({ length: 20 }, (_, index) => ({
   id: index + 1,
   img: faker.image.avatar(),
-  lastName: faker.name.lastName(),
-  firstName: faker.name.firstName(),
+  lastName: faker.person.lastName(),
+  firstName: faker.person.firstName(),
   email: faker.internet.email(),
   phone: faker.phone.number('+48 91 ### ## ##'),
   createdAt: generateRandomDate(),
