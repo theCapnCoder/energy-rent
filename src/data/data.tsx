@@ -207,3 +207,26 @@ export const barChartBoxVisit: BarChartBoxProps = {
     },
   ],
 };
+
+function getRandomNumber(min: number, max: number) {
+  return Math.floor(Math.random() * (max - min + 1)) + min;
+}
+
+function generateRandomDate() {
+  const day = getRandomNumber(1, 28);
+  const month = getRandomNumber(1, 12);
+  const year = getRandomNumber(2000, 2030);
+
+  return `${day.toString().padStart(2, '0')}.${month.toString().padStart(2, '0')}.${year}`;
+}
+
+export const userRows = Array.from({ length: 20 }, (_, index) => ({
+  id: index + 1,
+  img: faker.image.avatar(),
+  lastName: faker.person.lastName(),
+  firstName: faker.person.firstName(),
+  email: faker.internet.email(),
+  phone: faker.phone.number('+48 91 ### ## ##'),
+  createdAt: generateRandomDate(),
+  verified: faker.datatype.boolean(),
+}))
