@@ -1,3 +1,5 @@
+import { DeleteForever, DriveFileRenameOutline } from "@mui/icons-material";
+import { IconButton, Stack } from "@mui/material";
 import { DataGrid, GridColDef, GridToolbar } from "@mui/x-data-grid";
 import { Link } from "react-router-dom";
 
@@ -8,12 +10,11 @@ type Props = {
 };
 
 export const DataTable = (props: Props) => {
-
   const handleDelete = (id: number) => {
-    // delete item    
+    // delete item
 
-    console.log(id + "has been deleted")
-  }
+    console.log(id + " has been deleted");
+  };
 
   const actionColumn: GridColDef = {
     field: "action",
@@ -21,20 +22,24 @@ export const DataTable = (props: Props) => {
     width: 100,
     renderCell: (params) => {
       return (
-        <div className="cellAction">
+        <Stack direction="row">
           <Link
             to={`/${props.slug}/${params.row.id}`}
             style={{ textDecoration: "none" }}
           >
-            <div className="viewButton">View</div>
+            <IconButton>
+              <DriveFileRenameOutline htmlColor="green" />
+            </IconButton>
           </Link>
           <div
             className="deleteButton"
             onClick={() => handleDelete(params.row.id)}
           >
-            Delete
+            <IconButton>
+              <DeleteForever htmlColor="purple" />
+            </IconButton>
           </div>
-        </div>
+        </Stack>
       );
     },
   };
@@ -44,6 +49,7 @@ export const DataTable = (props: Props) => {
       sx={{
         "& .MuiDataGrid-toolbarContainer": {
           flexDirection: "row-reverse",
+          padding: "10px",
         },
       }}
       rows={props.rows}
@@ -62,7 +68,7 @@ export const DataTable = (props: Props) => {
           quickFilterProps: { debounceMs: 500 },
         },
       }}
-      pageSizeOptions={[5]}
+      pageSizeOptions={[10]}
       checkboxSelection
       disableRowSelectionOnClick
       disableColumnFilter
