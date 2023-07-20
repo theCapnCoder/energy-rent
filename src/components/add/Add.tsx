@@ -36,6 +36,7 @@ export const Add = (props: Props) => {
                 .filter((item) => item.field !== "id" && item.field !== "img")
                 .map((column) => (
                   <TextField
+                    key={column.field}
                     sx={{
                       m: 1,
                       width: "47%",
