@@ -65,7 +65,7 @@ export const Users = () => {
           Users
         </Typography>
         <Button onClick={() => setOpen(true)} variant="contained">
-          Add new user
+          Add New User
         </Button>
       </Stack>
       <DataTable slug="user" columns={columns} rows={userRows} />
