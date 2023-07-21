@@ -66,46 +66,67 @@ const data = [
   },
 ];
 
-export const Single = () => (
+type Props = {
+  id: number;
+  img?: string;
+  title: string;
+  info: object;
+  chart?: {
+    dataKeys: { name: string; color: string }[];
+    data: object[];
+  };
+  activities?: { time: string; text: string };
+};
+
+export const Single = (props: Props) => (
   <Stack direction={"row"}>
     <Box sx={{ flex: 1 }}>
       <Stack direction="row" alignItems={"center"} gap={2}>
-        <Avatar variant="rounded" sx={{ width: 100, height: 100 }} />
-        <Typography variant="h4">John Doe</Typography>
+        <Avatar
+          variant="rounded"
+          src={props.img}
+          sx={{ width: 100, height: 100 }}
+        />
+        <Typography variant="h4">{props.title}</Typography>
         <Button variant="contained" color="error" size="small">
           Update
         </Button>
       </Stack>
 
+      {Object.entries(props.info).map((item) => (
+        <Stack key={item[0]} direction="row" gap={2}>
+          <Typography variant="subtitle1">{item[0]}</Typography>
+          <Typography variant="h4">{item[1]}</Typography>
+        </Stack>
+      ))}
+
       <Divider sx={{ my: 3 }} />
 
-      <Box width={"80%"} height={400}>
-        <ResponsiveContainer width="100%" height="100%">
-          <LineChart
-            width={500}
-            height={300}
-            data={data}
-            margin={{
-              top: 5,
-              right: 30,
-              left: 20,
-              bottom: 5,
-            }}
-          >
-            <XAxis dataKey="name" />
-            <YAxis />
-            <Tooltip />
-            <Legend />
-            <Line
-              type="monotone"
-              dataKey="pv"
-              stroke="#8884d8"
-              activeDot={{ r: 8 }}
-            />
-            <Line type="monotone" dataKey="uv" stroke="#82ca9d" />
-          </LineChart>
-        </ResponsiveContainer>
-      </Box>
+      {props.chart && (
+        <Box width={"80%"} height={400}>
+          <ResponsiveContainer width="100%" height="100%">
+            <LineChart
+              width={500}
+              height={300}
+              data={props.chart.data}
+              margin={{
+                top: 5,
+                right: 30,
+                left: 20,
+                bottom: 5,
+              }}
+            >
+              <XAxis dataKey="name" />
+              <YAxis />
+              <Tooltip />
+              <Legend />
+              {props.chart.dataKeys.map((dataKey) => (
+                <Line type="monotone" dataKey={dataKey.name} stroke={dataKey.color} />
+              ))}
+            </LineChart>
+          </ResponsiveContainer>
+        </Box>
+      )}
     </Box>
 
     <Box sx={{ flex: 1 }}>
