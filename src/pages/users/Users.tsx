@@ -68,7 +68,7 @@ export const Users = () => {
           Add New User
         </Button>
       </Stack>
-      <DataTable slug="user" columns={columns} rows={userRows} />
+      <DataTable slug="users" columns={columns} rows={userRows} />
       {open && (
         <Add slug="user" open={open} columns={columns} setOpen={setOpen} />
       )}
