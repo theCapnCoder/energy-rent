@@ -75,35 +75,37 @@ type Props = {
     dataKeys: { name: string; color: string }[];
     data: object[];
   };
-  activities?: { time: string; text: string };
+  activities?: { time: string; text: string }[];
 };
 
 export const Single = (props: Props) => (
-  <Stack direction={"row"}>
+  <Stack direction={"row"} gap={4}>
     <Box sx={{ flex: 1 }}>
-      <Stack direction="row" alignItems={"center"} gap={2}>
+      <Stack mb={2} direction="row" alignItems={"center"} gap={2}>
         <Avatar
           variant="rounded"
           src={props.img}
           sx={{ width: 100, height: 100 }}
         />
-        <Typography variant="h4">{props.title}</Typography>
+        <Typography variant="h5">{props.title}</Typography>
         <Button variant="contained" color="error" size="small">
           Update
         </Button>
       </Stack>
 
       {Object.entries(props.info).map((item) => (
-        <Stack key={item[0]} direction="row" gap={2}>
-          <Typography variant="subtitle1">{item[0]}</Typography>
-          <Typography variant="h4">{item[1]}</Typography>
+        <Stack key={item[0]} direction="row" gap={1}>
+          <Typography variant="subtitle1" sx={{ textTransform: "capitalize" }}>
+            {item[0]}:
+          </Typography>
+          <Typography variant="subtitle1">{item[1]}</Typography>
         </Stack>
       ))}
 
       <Divider sx={{ my: 3 }} />
 
       {props.chart && (
-        <Box width={"80%"} height={400}>
+        <Box key={props.chart.dataKeys[0].name} width={"80%"} height={400}>
           <ResponsiveContainer width="100%" height="100%">
             <LineChart
               width={500}
@@ -121,7 +123,11 @@ export const Single = (props: Props) => (
               <Tooltip />
               <Legend />
               {props.chart.dataKeys.map((dataKey) => (
-                <Line type="monotone" dataKey={dataKey.name} stroke={dataKey.color} />
+                <Line
+                  type="monotone"
+                  dataKey={dataKey.name}
+                  stroke={dataKey.color}
+                />
               ))}
             </LineChart>
           </ResponsiveContainer>
@@ -130,73 +136,34 @@ export const Single = (props: Props) => (
     </Box>
 
     <Box sx={{ flex: 1 }}>
-      <Typography variant="subtitle1">Latest Activities</Typography>
-      <List sx={{ width: "100%", maxWidth: 360, bgcolor: "background.paper" }}>
-        <ListItem alignItems="flex-start">
-          <ListItemAvatar>
-            <Avatar alt="Remy Sharp" src="/static/images/avatar/1.jpg" />
-          </ListItemAvatar>
-          <ListItemText
-            primary="Brunch this weekend?"
-            secondary={
-              <React.Fragment>
-                <Typography
-                  sx={{ display: "inline" }}
-                  component="span"
-                  variant="body2"
-                  color="text.primary"
-                >
-                  Ali Connors
-                </Typography>
-                {" — I'll be in your neighborhood doing errands this…"}
-              </React.Fragment>
-            }
-          />
-        </ListItem>
-        <Divider variant="inset" component="li" />
-        <ListItem alignItems="flex-start">
-          <ListItemAvatar>
-            <Avatar alt="Travis Howard" src="/static/images/avatar/2.jpg" />
-          </ListItemAvatar>
-          <ListItemText
-            primary="Summer BBQ"
-            secondary={
-              <React.Fragment>
-                <Typography
-                  sx={{ display: "inline" }}
-                  component="span"
-                  variant="body2"
-                  color="text.primary"
-                >
-                  to Scott, Alex, Jennifer
-                </Typography>
-                {" — Wish I could come, but I'm out of town this…"}
-              </React.Fragment>
-            }
-          />
-        </ListItem>
-        <Divider variant="inset" component="li" />
-        <ListItem alignItems="flex-start">
-          <ListItemAvatar>
-            <Avatar alt="Cindy Baker" src="/static/images/avatar/3.jpg" />
-          </ListItemAvatar>
-          <ListItemText
-            primary="Oui Oui"
-            secondary={
-              <React.Fragment>
-                <Typography
-                  sx={{ display: "inline" }}
-                  component="span"
-                  variant="body2"
-                  color="text.primary"
-                >
-                  Sandra Adams
-                </Typography>
-                {" — Do you have Paris recommendations? Have you ever…"}
-              </React.Fragment>
-            }
-          />
-        </ListItem>
+      <Typography variant="h5">Latest Activities</Typography>
+      <List disablePadding sx={{ width: "100%", maxWidth: 360, bgcolor: "background.paper" }}>
+        {props.activities && (
+          <>
+            {props.activities.map((activity) => (
+              <>
+                <ListItem disableGutters alignItems="flex-start">
+                  <ListItemText
+                    primary={activity.text}
+                    secondary={
+                      <React.Fragment>
+                        <Typography
+                          sx={{ display: "inline" }}
+                          component="span"
+                          variant="body2"
+                          color="text.primary"
+                        >
+                          {activity.time}
+                        </Typography>
+                      </React.Fragment>
+                    }
+                  />
+                </ListItem>
+                <Divider component="li" />
+              </>
+            ))}
+          </>
+        )}
       </List>
     </Box>
   </Stack>
