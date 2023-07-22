@@ -25,7 +25,13 @@ export const Menu = () => {
           key={id}
           component="nav"
           subheader={
-            <ListSubheader component="div" sx={{ textTransform: "uppercase" }}>
+            <ListSubheader
+              component="div"
+              sx={{
+                display: { xs: "none", md: "block" },
+                textTransform: "uppercase",
+              }}
+            >
               {title}
             </ListSubheader>
           }
@@ -35,7 +41,10 @@ export const Menu = () => {
             <Link to={url} key={id}>
               <ListItemButton>
                 <ListItemIcon>{icon}</ListItemIcon>
-                <ListItemText primary={title} />
+                <ListItemText
+                  primary={title}
+                  sx={{ display: { xs: "none", md: "block" } }}
+                />
               </ListItemButton>
             </Link>
           ))}
