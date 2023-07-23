@@ -1,5 +1,5 @@
 import { Phone } from "@mui/icons-material";
-import { AppBar, Box, Button, Stack, Typography } from "@mui/material";
+import { AppBar, Button, Stack, Typography } from "@mui/material";
 import { Logo } from "../../assets/icons/Logo";
 
 export const NavBar = () => {
