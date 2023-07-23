@@ -1,4 +1,3 @@
-import { Home, People } from "@mui/icons-material";
 import {
   BoxProps,
   List,
