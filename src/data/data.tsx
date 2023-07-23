@@ -10,7 +10,6 @@ import {
 import { faker } from "@faker-js/faker";
 import { ChartBoxProps } from "../components/chartBox/ChartBox";
 import { BarChartBoxProps } from "../components/barChartBox/BarChartBox";
-import { Products } from "../pages/products";
 
 type ListItem = {
   id: number;
