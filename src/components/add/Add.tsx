@@ -6,11 +6,9 @@ import {
   DialogContent,
   DialogContentText,
   DialogTitle,
-  Stack,
   TextField,
 } from "@mui/material";
 import { GridColDef } from "@mui/x-data-grid";
-import { isTemplateExpression } from "typescript";
 
 type Props = {
   slug: string;

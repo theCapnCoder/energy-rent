@@ -11,8 +11,7 @@ function App() {
       <Stack direction={"row"}>
         <Box
           sx={{
-            width: 250,
-            padding: "5px 20px",
+            padding: { xs: 0, sm: "5px 20px" },
             borderRight: "2px solid grey",
           }}
         >

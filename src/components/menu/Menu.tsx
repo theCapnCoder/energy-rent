@@ -1,4 +1,3 @@
-import { Home, People } from "@mui/icons-material";
 import {
   BoxProps,
   List,
@@ -11,6 +10,12 @@ import { Link } from "react-router-dom";
 import { menu } from "../../data/data";
 
 const listStyle: BoxProps["sx"] = {
+  "& .MuiListItemButton-root": {
+    px: { xs: 1, sm: 2 },
+  },
+  "& .MuiListItemIcon-root": {
+    minWidth: 0,
+  },
   "& a": {
     color: "inherit",
     textDecoration: "none",
@@ -25,7 +30,13 @@ export const Menu = () => {
           key={id}
           component="nav"
           subheader={
-            <ListSubheader component="div" sx={{ textTransform: "uppercase" }}>
+            <ListSubheader
+              component="div"
+              sx={{
+                display: { xs: "none", md: "block" },
+                textTransform: "uppercase",
+              }}
+            >
               {title}
             </ListSubheader>
           }
@@ -35,7 +46,10 @@ export const Menu = () => {
             <Link to={url} key={id}>
               <ListItemButton>
                 <ListItemIcon>{icon}</ListItemIcon>
-                <ListItemText primary={title} />
+                <ListItemText
+                  primary={title}
+                  sx={{ display: { xs: "none", md: "block" } }}
+                />
               </ListItemButton>
             </Link>
           ))}

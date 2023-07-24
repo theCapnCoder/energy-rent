@@ -19,7 +19,11 @@ export const Home = () => {
       sx={{
         display: "grid",
         gap: 3,
-        gridTemplateColumns: "repeat(4, 1fr)",
+        gridTemplateColumns: {
+          xs: "repeat(1, 1fr)",
+          md: "repeat(2, 1fr)",
+          lg: "repeat(4, 1fr)",
+        },
         gridAutoRows: "minmax(180px, auto)",
       }}
     >
@@ -41,7 +45,13 @@ export const Home = () => {
       <Paper>
         <ChartBox {...chartBoxConversion} />
       </Paper>
-      <Paper sx={{ gridColumn: "span 2", gridRow: "span 2" }}>
+      <Paper
+        sx={{
+          display: { xs: "none", md: "block" },
+          gridColumn: "span 2",
+          gridRow: "span 2",
+        }}
+      >
         <BigChartBox />
       </Paper>
       <Paper>

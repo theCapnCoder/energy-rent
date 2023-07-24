@@ -2,7 +2,6 @@ import { Box, Typography } from "@mui/material";
 import {
   Area,
   AreaChart,
-  CartesianGrid,
   ResponsiveContainer,
   Tooltip,
   XAxis,
