@@ -10,6 +10,12 @@ import { Link } from "react-router-dom";
 import { menu } from "../../data/data";
 
 const listStyle: BoxProps["sx"] = {
+  "& .MuiListItemButton-root": {
+    px: { xs: 1, sm: 2 },
+  },
+  "& .MuiListItemIcon-root": {
+    minWidth: 0,
+  },
   "& a": {
     color: "inherit",
     textDecoration: "none",
