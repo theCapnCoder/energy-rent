@@ -11,7 +11,7 @@ export const Footer = () => {
         sx={{ p: { xs: 1, sm: 2, md: 3, lg: 4, xl: 5 } }}
       >
         <Typography sx={{ display: { xs: "none", md: "block" } }}>
-          Аренда генераторов Москва и МО. Все права защищены © 2021{" "}
+          Аренда генераторов в Киеве. Все права защищены © 2021{" "}
         </Typography>
 
         <Stack direction={"row"} gap={3.5}>

@@ -29,7 +29,7 @@ export const NavBar = () => {
         </Stack>
 
         <Stack>
-          <Typography sx={{ fontWeight: 600 }}>+7 (495) 926 76 76</Typography>
+          <Typography sx={{ fontWeight: 600 }}>+38 (044) 926 76 76</Typography>
           <Typography
             variant="subtitle1"
             sx={{ display: { xs: "none", sm: "block" }, pl: 1 }}
